@@ -10,6 +10,9 @@ New labs get added the same way: drop in a `LabX.py` and add it to the navigatio
 - **Lab 2** (`Lab2.py`, default page) - Document summarizer: upload a PDF and get a
   summary, with sidebar options for language and summary format, and a choice between
   models via a checkbox.
+- **Lab 3** (`Lab3.py`) - Streaming chatbot with short-term memory: full conversation
+  history is kept in `st.session_state` and shown to the user, but only the last 2
+  exchanges are sent to the LLM as context on each request (a conversation buffer).
 
 Assignment instruction PDFs are kept locally under `Instructions/` and are gitignored
 (not part of the repo).
