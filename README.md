@@ -7,7 +7,7 @@ New labs get added the same way: drop in a `LabX.py` and add it to the navigatio
 - **Lab 1** (`Lab1.py`) - Document question answering: upload a `.txt`/`.md` file, ask a
   question about it, and get an answer from GPT (user supplies and validates their own
   API key via a text input).
-- **Lab 2** (`Lab2.py`, default page) - Document summarizer: upload a PDF and get a
+- **Lab 2** (`Lab2.py`) - Document summarizer: upload a PDF and get a
   summary, with sidebar options for language and summary format, and a choice between
   models via a checkbox.
 - **Lab 3** (`Lab3.py`) - Streaming chatbot with short-term memory: full conversation
@@ -16,9 +16,16 @@ New labs get added the same way: drop in a `LabX.py` and add it to the navigatio
   A system prompt keeps answers at a 10-year-old reading level and drives the
   "Do you want more info?" follow-up loop; it is prepended after buffering so
   trimming the history can never drop it.
+- **Lab 4** (`Lab4.py`, default page) - Course information chatbot built on RAG: the seven
+  syllabi in `Documents/Lab-04-Data/` are embedded with OpenAI `text-embedding-3-small`
+  into a ChromaDB collection (`Lab4Collection`), cached in `st.session_state.Lab4_VectorDB`
+  so they are embedded only once. Each question retrieves the three most relevant syllabi
+  and passes them to the LLM as context, and the bot states which syllabi it drew from —
+  or says when it is answering from general knowledge instead.
 
 Assignment instruction PDFs are kept locally under `Instructions/` and are gitignored
-(not part of the repo).
+(not part of the repo). The Lab 4 source documents under `Documents/Lab-04-Data/` are
+committed, since the deployed app builds its vector DB from them.
 
 ### How to run it on your own machine
 
