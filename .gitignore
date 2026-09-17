@@ -7,9 +7,7 @@ venv/
 **/.streamlit/secrets.toml
 .DS_Store
 
-# Assignment instruction PDFs stay local; the Lab 4 source documents must be
-# committed so the deployed app can build its vector DB from them.
+# Assignment PDFs and the Lab 4 source syllabi stay local; the built vector DB
+# is committed instead, so the deployed app never needs to read them.
 *.pdf
-!Documents/Lab-04-Data/*.pdf
-
-ChromaDB_for_Lab/
+Documents/

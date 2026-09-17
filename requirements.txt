@@ -1,5 +1,5 @@
 streamlit
 openai
 pypdf
-chromadb
+chromadb==1.5.9
 pysqlite3-binary
