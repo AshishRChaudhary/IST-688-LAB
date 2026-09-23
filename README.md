@@ -16,16 +16,21 @@ New labs get added the same way: drop in a `LabX.py` and add it to the navigatio
   A system prompt keeps answers at a 10-year-old reading level and drives the
   "Do you want more info?" follow-up loop; it is prepended after buffering so
   trimming the history can never drop it.
-- **Lab 4** (`Lab4.py`, default page) - Course information chatbot built on RAG: the seven
-  syllabi in `Documents/Lab-04-Data/` are embedded with OpenAI `text-embedding-3-small`
-  into a ChromaDB collection (`Lab4Collection`), cached in `st.session_state.Lab4_VectorDB`
-  so they are embedded only once. Each question retrieves the three most relevant syllabi
-  and passes them to the LLM as context, and the bot states which syllabi it drew from —
-  or says when it is answering from general knowledge instead.
+- **Lab 4** (`Lab4.py`) - Course information chatbot built on RAG: seven course syllabi are
+  embedded with OpenAI `text-embedding-3-small` into a ChromaDB collection
+  (`Lab4Collection`), cached in `st.session_state.Lab4_VectorDB` so they are embedded only
+  once. Each question retrieves the three most relevant syllabi and passes them to the LLM
+  as context, and the bot states which syllabi it drew from — or says when it is answering
+  from general knowledge instead.
+- **Lab 5** (`Lab5.py`, default page) - The "what to wear" bot: enter a city and the LLM
+  decides, via a `get_current_weather` tool (`tool_choice="auto"`), whether to look up
+  wttr.in. The tool returns current conditions, today's high/low, sunrise/sunset, and a
+  three-hourly forecast; a second API call turns that into clothing advice and outdoor
+  activity suggestions. Defaults to Syracuse, NY when no city is given.
 
-Assignment instruction PDFs are kept locally under `Instructions/` and are gitignored
-(not part of the repo). The Lab 4 source documents under `Documents/Lab-04-Data/` are
-committed, since the deployed app builds its vector DB from them.
+Assignment instruction PDFs and the Lab 4 source syllabi are kept locally and gitignored.
+The built Lab 4 vector database under `ChromaDB_for_Lab/` is committed instead, so the
+deployed app never has to read the syllabi — which is why `chromadb` is pinned.
 
 ### How to run it on your own machine
 

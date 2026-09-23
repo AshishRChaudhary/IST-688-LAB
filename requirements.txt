@@ -3,3 +3,4 @@ openai
 pypdf
 chromadb==1.5.9
 pysqlite3-binary
+requests
