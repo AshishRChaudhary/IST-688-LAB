@@ -11,3 +11,6 @@ venv/
 # is committed instead, so the deployed app never needs to read them.
 *.pdf
 Documents/
+
+# LoRA adapters saved by the Lab 7 notebook; not part of the submission.
+triage-lora-adapter/
